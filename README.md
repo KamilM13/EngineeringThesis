@@ -1,5 +1,5 @@
 # Engineering Thesis
-Instrument cluster app built in QT to use with CAN bus in electric vehicle Perła.
+Instrument cluster app programmed in C++ and QML to use with CAN bus in electric vehicle Perła.
 
 Had issues with qrc so in main.qml the variable filepath needs to be changed.
 
