@@ -1,0 +1,5 @@
+module appClusterGauge
+typeinfo appClusterGauge.qmltypes
+prefer :/qt/qml/appClusterGauge/
+Main 1.0 Main.qml
+

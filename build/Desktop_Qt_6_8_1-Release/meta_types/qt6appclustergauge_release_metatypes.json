@@ -1,0 +1,321 @@
+[
+    {
+        "classes": [
+            {
+                "className": "System",
+                "lineNumber": 6,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "speed",
+                        "notify": "speedChanged",
+                        "read": "speed",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setSpeed"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "speedColorWarning",
+                        "notify": "speedColorWarningChanged",
+                        "read": "speedColorWarning",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setSpeedColorWarning"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "batteryLevel",
+                        "notify": "batteryLevelChanged",
+                        "read": "batteryLevel",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setBatteryLevel"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "batteryColorWarning",
+                        "notify": "batteryColorWarningChanged",
+                        "read": "batteryColorWarning",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setBatteryColorWarning"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "rightBlinker",
+                        "notify": "rightBlinkerChanged",
+                        "read": "rightBlinker",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setRightBlinker"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "leftBlinker",
+                        "notify": "leftBlinkerChanged",
+                        "read": "leftBlinker",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setLeftBlinker"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "name": "speedometerAngle",
+                        "notify": "speedometerAngleChanged",
+                        "read": "speedometerAngle",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "float",
+                        "user": false,
+                        "write": "setSpeedometerAngle"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 7,
+                        "name": "stickState",
+                        "notify": "stickStateChanged",
+                        "read": "stickState",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setStickState"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 8,
+                        "name": "stickStateString",
+                        "notify": "stickStateStringChanged",
+                        "read": "stickStateString",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setStickStateString"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 9,
+                        "name": "lightsState",
+                        "notify": "lightsStateChanged",
+                        "read": "lightsState",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setLightsState"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 10,
+                        "name": "distanceWarning",
+                        "notify": "distanceWarningChanged",
+                        "read": "distanceWarning",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setDistanceWarning"
+                    }
+                ],
+                "qualifiedClassName": "System",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "speed",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "speedChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "speedColorWarning",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "speedColorWarningChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "batteryLevel",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "batteryLevelChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "batteryColorWarning",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "batteryColorWarningChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rightBlinker",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "rightBlinkerChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "leftBlinker",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "leftBlinkerChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "speedometerAngle",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "speedometerAngleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "stickState",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 7,
+                        "name": "stickStateChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "stickStateString",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 8,
+                        "name": "stickStateStringChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "lightsState",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 9,
+                        "name": "lightsStateChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "distanceWarning",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 10,
+                        "name": "distanceWarningChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "System.h",
+        "outputRevision": 68
+    }
+]
