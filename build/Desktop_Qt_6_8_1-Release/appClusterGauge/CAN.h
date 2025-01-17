@@ -24,9 +24,6 @@ public:
     CANFrame readFrame(System& system);
 
     double convertRawToActual(uint16_t rawValue, const MsgInfo* msgInfo);
-
-    void run();
-
 };
 
 #endif // CAN_H

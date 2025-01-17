@@ -7,7 +7,6 @@ Window {
     width: 1024
     height: 600
     color: "#000000"
-    property var filepath: "file:///home/kamil/Desktop/thesis/ClusterGauge/"
 
     Image {
         id: base
@@ -15,7 +14,7 @@ Window {
         y: 30
         width: 951
         height: 540
-        source: filepath + "assets/base.png"
+        source: "qrc:/assets/base.png"
         fillMode: Image.PreserveAspectFit
 
         Text {
@@ -48,7 +47,7 @@ Window {
         y: 114
         width: 46
         height: 203
-        source: filepath + "assets/needle.png"
+        source: "qrc:/assets/needle.png"
         transform: Rotation { origin.x: 23; origin.y: 185.5; axis { x: 0; y: 0; z: 1 } angle: systemObject.speedometerAngle } // CONTROLLED BY SPEED
     }
 
@@ -60,7 +59,7 @@ Window {
         y: 400
         width: 50
         height: 50
-        source: filepath + "assets/right.png"
+        source: "qrc:/assets/right.png"
         visible: systemObject.rightBlinker // CAN CONTROLLED
     }
 
@@ -70,7 +69,7 @@ Window {
         y: 400
         width: 50
         height: 50
-        source: filepath + "assets/left.png"
+        source: "qrc:/assets/left.png"
         visible: systemObject.leftBlinker // CAN CONTROLLED
     }
 
@@ -89,7 +88,7 @@ Window {
         y: 400
         width: 80
         height: 80
-        source: filepath + "assets/headlight.png"
+        source: "qrc:/assets/headlight.png"
         visible: systemObject.lightsState // CAN CONTROLLED
     }
 
@@ -110,7 +109,7 @@ Window {
         y: 400
         width: 100
         height: 100
-        source: filepath + "assets/distance.png"
+        source: "qrc:/assets/distance.png"
         visible: systemObject.distanceWarning // CAN CONTROLLED
     }
 }
