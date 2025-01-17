@@ -10,6 +10,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
+set(CMAKE_AUTORCC ON)
+
 qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appClusterGauge
@@ -35,6 +37,7 @@ qt_add_qml_module(appClusterGauge
         RESOURCES Enums.h
         RESOURCES DBC.h
         RESOURCES includes.h
+        RESOURCES resourcemap.qrc
 )
 
 

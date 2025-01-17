@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
     System system;
 
-    // CAN can;
+    CAN can;
 
     // setting starting values for unit tests
     system.setSpeed(90);
@@ -37,10 +37,12 @@ int main(int argc, char *argv[])
     system.setRightBlinker(1);
     system.setLightsState(1);
     system.setLeftBlinker(1);
-    // while (1)
-    // {
-    //     can.readFrame(system);
-    // }
+
+    QTimer canTimer;
+    QObject::connect(&canTimer, &QTimer::timeout, [&system, &can]() {
+        can.readFrame(system);
+    });
+    canTimer.start(100); // Read frame every 100ms
     // // Speed and needle unit test
     // QObject::connect(&system, &System::speedChanged, [](const int& speednum) {
     //     qDebug() << "Speed:" << speednum;
