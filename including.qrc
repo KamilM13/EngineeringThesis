@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>inc/DBC.h</file>
+        <file>inc/Enums.h</file>
+        <file>inc/includes.h</file>
+        <file>inc/can.h</file>
+        <file>inc/system.h</file>
+    </qresource>
+</RCC>

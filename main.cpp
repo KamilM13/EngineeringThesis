@@ -6,8 +6,8 @@
 #include <iomanip>
 #include <thread>
 #include <string>
-#include "System.h"
-#include "CAN.h"
+#include "inc/system.h"
+#include "inc/can.h"
 
 
 
@@ -30,17 +30,19 @@ int main(int argc, char *argv[])
     // CAN can;
 
     // setting starting values for unit tests
-    system.setSpeed(90);
+    system.setSpeed(87);
     system.setBatteryLevel(50);
     system.setStickState(2);
     system.setDistanceWarning(1);
-    system.setRightBlinker(1);
+    // system.setRightBlinker(1);
     system.setLightsState(1);
-    system.setLeftBlinker(1);
-    // while (1)
-    // {
-    //     can.readFrame(system);
-    // }
+    // system.setLeftBlinker(1);
+
+//    QTimer canTimer;
+//    QObject::connect(&canTimer, &QTimer::timeout, [&system, &can]() {
+//        can.readFrame(system);
+//    });
+//    canTimer.start(100); // Read frame every 100ms
     // // Speed and needle unit test
     // QObject::connect(&system, &System::speedChanged, [](const int& speednum) {
     //     qDebug() << "Speed:" << speednum;
@@ -118,44 +120,40 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("systemObject", &system);
 
     // Load the QML file
-    qDebug() << "Loading QML...";
-    engine.load(QUrl(QStringLiteral("qrc:/qt/qml/appClusterGauge/Main.qml")));
-    qDebug() << "Loaded QML with root objects:" << engine.rootObjects();
-    if (engine.rootObjects().isEmpty()) {
-        qCritical() << "Failed to load QML!";
-        return -1;
-    }
+
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
 
     // qInstallMessageHandler(customMessageHandler);
     // // Rapid live test of the needle and speed variable tracking changing data
-    // QTimer speedTimer;
-    // QObject::connect(&speedTimer, &QTimer::timeout, [&system]() {
-    //     static int c_speed = 0;
-    //     static bool uptick = true;
-    //     if (c_speed < 180 && uptick) {
-    //         c_speed += 1;
-    //     } else if (c_speed == 180) {
-    //         c_speed -= 1;
-    //         uptick = false;
-    //     } else if (c_speed > 0 && !uptick) {
-    //         c_speed -= 1;
-    //     } else {
-    //         c_speed += 1;
-    //         uptick = true;
-    //     }
-    //     system.setSpeed(c_speed);
-    // });
-    // speedTimer.start(25); // Update speed every 10ms
+//    QTimer speedTimer;
+//    QObject::connect(&speedTimer, &QTimer::timeout, [&system]() {
+//        static int c_speed = 0;
+//        static bool uptick = true;
+//        if (c_speed < 180 && uptick) {
+//            c_speed += 1;
+//        } else if (c_speed == 180) {
+//            c_speed -= 1;
+//            uptick = false;
+//        } else if (c_speed > 0 && !uptick) {
+//            c_speed -= 1;
+//        } else {
+//            c_speed += 1;
+//            uptick = true;
+//        }
+//        system.setSpeed(c_speed);
+//    });
+//    speedTimer.start(25); // Update speed every 10ms
 
-    // // Create a QTimer to blink the blinkers every 500ms
-    // QTimer blinkerTimer;
-    // QObject::connect(&blinkerTimer, &QTimer::timeout, [&system]() {
-    //     static bool blinkerState = false;
-    //     blinkerState = !blinkerState;
-    //     system.setRightBlinker(blinkerState);
-    //     system.setLeftBlinker(blinkerState);
-    // });
-    // blinkerTimer.start(500); // Blink blinkers every 500ms
+     // Create a QTimer to blink the blinkers every 500ms
+     QTimer blinkerTimer;
+     QObject::connect(&blinkerTimer, &QTimer::timeout, [&system]() {
+         static bool blinkerState = false;
+         blinkerState = !blinkerState;
+         system.setRightBlinker(blinkerState);
+         system.setLeftBlinker(blinkerState);
+     });
+     blinkerTimer.start(500); // Blink blinkers every 500ms
 
     return app.exec();
 }

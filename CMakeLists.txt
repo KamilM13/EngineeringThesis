@@ -1,61 +1,46 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.5)
 
-project(ClusterGauge VERSION 0.1 LANGUAGES CXX)
+project(cluster LANGUAGES CXX)
 
+# Enable automatic inclusion of current directory headers
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Enable automatic handling of MOC, UIC, and RCC
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+# Find the required Qt components
+find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-set(CMAKE_VERBOSE_MAKEFILE ON)
-
-qt_standard_project_setup(REQUIRES 6.5)
-
-qt_add_executable(appClusterGauge
+# Define the source and header files
+set(SOURCES
     main.cpp
+    system.cpp
+    can.cpp
+    qml.qrc
+    assets.qrc
 )
 
-qt_add_qml_module(appClusterGauge
-    URI appClusterGauge
-    VERSION 1.0
-    QML_FILES
-        Main.qml
-        SOURCES System.cpp
-        SOURCES CAN.cpp
-        RESOURCES System.h
-
-        RESOURCES assets/left.png
-        RESOURCES assets/right.png
-        RESOURCES assets/needle.png
-        RESOURCES assets/base.png
-        RESOURCES assets/headlight.png
-        RESOURCES assets/distance.png
-        RESOURCES CAN.h
-        RESOURCES Enums.h
-        RESOURCES DBC.h
-        RESOURCES includes.h
+set(HEADERS
+    inc/can.h
+    inc/DBC.h
+    inc/Enums.h
+    inc/includes.h
+    inc/system.h
 )
 
+add_executable(cluster ${SOURCES} ${HEADERS})
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-set_target_properties(appClusterGauge PROPERTIES
-#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appClusterGauge
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
 
-target_link_libraries(appClusterGauge
-    PRIVATE Qt6::Quick
-)
+# Define Qt-specific compile flags for debug/release configurations
+target_compile_definitions(cluster
+  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-include(GNUInstallDirs)
-install(TARGETS appClusterGauge
-    BUNDLE DESTINATION .
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
+# Link required Qt libraries
+target_link_libraries(cluster
+  PRIVATE Qt5::Core Qt5::Quick)
